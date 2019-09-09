@@ -43,7 +43,7 @@ public class CarpetSettings
     public static boolean locked = false;
 
     // TODO: replace these constants at build time
-    public static final String carpetVersion = "v19_08_11";
+    public static final String carpetVersion = "v19_08_11M02";
     public static final String minecraftVersion = "1.12";
     public static final String mcpMappings = "20180814-1.12";
 
@@ -589,7 +589,6 @@ public class CarpetSettings
     public static boolean playerChunkLoadingFix = false;
 
     // ===== SURVIVAL FEATURES ===== //
-
     @Rule(desc = "Scoreboard displays changes over time, specified in seconds.", options = {"0", "60", "600", "3600"}, validator = "validateScoreboardDelta", category = EXPERIMENTAL, extra = {
             "Set to 0 to disable Scoreboard delta display."
     })
@@ -605,6 +604,10 @@ public class CarpetSettings
     @Rule(desc = "Dropping entire stacks works also from on the crafting UI result slot", category = {FIX, SURVIVAL})
     @SurvivalDefault
     public static boolean ctrlQCraftingFix = false;
+
+    @Rule(desc = "Ender Dragon Drops Elytra.", category = {SURVIVAL})
+    @SurvivalDefault
+    public static boolean enderdragonDropElytra = false;
 
     @Rule(desc = "Liquids don't ignore random tick updates", category = FEATURE, validator = "validateLiquidsNotRandom", extra = "Removed in 1.13")
     @BugFixDefault
@@ -709,6 +712,8 @@ public class CarpetSettings
 
     @Rule(desc = "Water bottles in dispensers fill with water when dispensed with water in front.", category = EXPERIMENTAL)
     public static boolean dispenserWaterBottle;
+    @Rule(desc = "Non-operators Can use entity selectors", category = {SURVIVAL, EXPERIMENTAL})
+    public static boolean nonOperatorUseEntitySelector;
 
     @Rule(desc = "Minecarts can be filled with hoppers, chests, tnt and furnace.", category = EXPERIMENTAL)
     public static boolean dispenserMinecartFiller;

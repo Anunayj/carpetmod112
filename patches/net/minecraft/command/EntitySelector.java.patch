@@ -1,0 +1,19 @@
+--- ../src-base/minecraft/net/minecraft/command/EntitySelector.java
++++ ../src-work/minecraft/net/minecraft/command/EntitySelector.java
+@@ -1,5 +1,6 @@
+ package net.minecraft.command;
+ 
++import carpet.CarpetSettings;
+ import com.google.common.base.Predicate;
+ import com.google.common.base.Predicates;
+ import com.google.common.base.Splitter;
+@@ -123,7 +124,8 @@
+     {
+         Matcher matcher = field_82389_a.matcher(p_179656_1_);
+ 
+-        if (matcher.matches() && p_179656_0_.func_70003_b(1, "@"))
++
++        if (matcher.matches() && (p_179656_0_.func_70003_b(1, "@" )|| CarpetSettings.nonOperatorUseEntitySelector))
+         {
+             Map<String, String> map = func_82381_h(matcher.group(2));
+ 

@@ -29,12 +29,13 @@ public class XPcombine {
                 {
                     int size = getTextureByXP(other.getXpValue() );
                     other.xpValue = other.getXpValue() + first.getXpValue();
+                    other.xpValues.addAll(first.xpValues);
                     other.delayBeforeCanPickup = Math.max(other.delayBeforeCanPickup, first.delayBeforeCanPickup);
                     other.xpOrbAge = Math.min(other.xpOrbAge, first.xpOrbAge);
                     if (getTextureByXP(other.getXpValue() ) != size)
                     {
                         other.setDead();
-                        first.world.spawnEntity(new EntityXPOrb(other.world, other.getXpValue(), other));
+                        first.world.spawnEntity(new EntityXPOrb(other.world, other.getXpValue(),other.xpValues, other));
                     }
                     else
                     {

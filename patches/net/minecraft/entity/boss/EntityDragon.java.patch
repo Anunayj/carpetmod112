@@ -1,0 +1,61 @@
+--- ../src-base/minecraft/net/minecraft/entity/boss/EntityDragon.java
++++ ../src-work/minecraft/net/minecraft/entity/boss/EntityDragon.java
+@@ -2,6 +2,8 @@
+ 
+ import java.util.List;
+ import javax.annotation.Nullable;
++
++import carpet.CarpetSettings;
+ import net.minecraft.block.Block;
+ import net.minecraft.block.material.Material;
+ import net.minecraft.block.state.IBlockState;
+@@ -16,11 +18,14 @@
+ import net.minecraft.entity.boss.dragon.phase.PhaseList;
+ import net.minecraft.entity.boss.dragon.phase.PhaseManager;
+ import net.minecraft.entity.item.EntityEnderCrystal;
++import net.minecraft.entity.item.EntityItem;
+ import net.minecraft.entity.item.EntityXPOrb;
+ import net.minecraft.entity.monster.IMob;
+ import net.minecraft.entity.player.EntityPlayer;
+ import net.minecraft.init.Blocks;
+ import net.minecraft.init.SoundEvents;
++import net.minecraft.item.Item;
++import net.minecraft.item.ItemStack;
+ import net.minecraft.nbt.NBTTagCompound;
+ import net.minecraft.network.datasync.DataParameter;
+ import net.minecraft.network.datasync.DataSerializers;
+@@ -634,6 +639,11 @@
+                 this.func_184668_a(MathHelper.func_76141_d((float)i * 0.08F));
+             }
+ 
++            if (this.field_70995_bG==175 && flag && CarpetSettings.enderdragonDropElytra)
++            {
++                this.dropElytra();
++            }
++
+             if (this.field_70995_bG == 1)
+             {
+                 this.field_70170_p.func_175669_a(1028, new BlockPos(this), 0);
+@@ -651,6 +661,7 @@
+                 this.func_184668_a(MathHelper.func_76141_d((float)i * 0.2F));
+             }
+ 
++
+             if (this.field_184676_bI != null)
+             {
+                 this.field_184676_bI.func_186096_a(this);
+@@ -669,7 +680,14 @@
+             this.field_70170_p.func_72838_d(new EntityXPOrb(this.field_70170_p, this.field_70165_t, this.field_70163_u, this.field_70161_v, i));
+         }
+     }
++    private void dropElytra()
++    {
++            Item i = Item.func_111206_d("minecraft:elytra");
++            ItemStack stack = new ItemStack(i);
++            this.field_70170_p.func_72838_d(new EntityItem(this.field_70170_p, this.field_70165_t, this.field_70163_u, this.field_70161_v , stack));
+ 
++    }
++
+     public int func_184671_o()
+     {
+         if (this.field_184680_bM[0] == null)
