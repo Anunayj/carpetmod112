@@ -154,6 +154,9 @@ public class CarpetSettings
     })
     public static boolean wirelessRedstone = false;
 
+    @Rule(desc = "Non-player entites will generate end platforms and Nether portals ", category = {SURVIVAL,EXPERIMENTAL})
+    public static boolean entitiesGeneratePortals = false;
+
     private static boolean validateWirelessRedstone(boolean value) {
         if (!value)
             ((BlockWool) Blocks.WOOL).clearWirelessLocations();
