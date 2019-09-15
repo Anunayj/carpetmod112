@@ -1,0 +1,19 @@
+--- ../src-base/minecraft/net/minecraft/item/ItemAppleGold.java
++++ ../src-work/minecraft/net/minecraft/item/ItemAppleGold.java
+@@ -24,8 +24,14 @@
+         {
+             if (p_77849_1_.func_77960_j() > 0)
+             {
+-                p_77849_3_.func_70690_d(new PotionEffect(MobEffects.field_76428_l, 400, 1));
+-                p_77849_3_.func_70690_d(new PotionEffect(MobEffects.field_76429_m, 6000, 0));
++                if(carpet.CarpetSettings.nerfedNotchApple) {
++                    p_77849_3_.func_70690_d(new PotionEffect(MobEffects.field_76428_l, 250, 1));
++                }
++                else
++                {
++                    p_77849_3_.func_70690_d(new PotionEffect(MobEffects.field_76428_l, 400, 1));
++                    p_77849_3_.func_70690_d(new PotionEffect(MobEffects.field_76429_m, 6000, 0));
++                }
+                 p_77849_3_.func_70690_d(new PotionEffect(MobEffects.field_76426_n, 6000, 0));
+                 p_77849_3_.func_70690_d(new PotionEffect(MobEffects.field_76444_x, 2400, 3));
+             }

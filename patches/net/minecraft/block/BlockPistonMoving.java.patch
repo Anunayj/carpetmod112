@@ -1,6 +1,6 @@
 --- ../src-base/minecraft/net/minecraft/block/BlockPistonMoving.java
 +++ ../src-work/minecraft/net/minecraft/block/BlockPistonMoving.java
-@@ -28,15 +28,21 @@
+@@ -28,18 +28,25 @@
  import net.minecraft.world.IBlockAccess;
  import net.minecraft.world.World;
  
@@ -23,7 +23,19 @@
          this.func_149711_c(-1.0F);
      }
  
-@@ -207,11 +213,24 @@
++
+     @Nullable
+     public TileEntity func_149915_a(World p_149915_1_, int p_149915_2_)
+     {
+@@ -70,6 +77,7 @@
+         return false;
+     }
+ 
++
+     public boolean func_176198_a(World p_176198_1_, BlockPos p_176198_2_, EnumFacing p_176198_3_)
+     {
+         return false;
+@@ -207,11 +215,30 @@
  
      protected BlockStateContainer func_180661_e()
      {
@@ -32,6 +44,8 @@
 +        return new BlockStateContainer(this, new IProperty[] {field_176426_a, field_176425_b, OPACITY, LIGHT});
      }
  
++
++
      public BlockFaceShape func_193383_a(IBlockAccess p_193383_1_, IBlockState p_193383_2_, BlockPos p_193383_3_, EnumFacing p_193383_4_)
      {
          return BlockFaceShape.UNDEFINED;
@@ -48,4 +62,8 @@
 +     {
 +         return state.func_177229_b(LIGHT);
 +     }
++
++
++
++
  }

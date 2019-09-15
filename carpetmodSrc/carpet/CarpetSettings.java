@@ -157,6 +157,19 @@ public class CarpetSettings
     @Rule(desc = "Non-player entites will generate end platforms and Nether portals ", category = {SURVIVAL,EXPERIMENTAL})
     public static boolean entitiesGeneratePortals = false;
 
+    @Rule(desc = "Block 36 is considered not solid ", category = {SURVIVAL,EXPERIMENTAL})
+    public static boolean nonsolidBlock36= false;
+
+    @Rule(desc = "Nerfed Enchanted Golden apples to give Regen II for shorter duration and No Resistance ", category = {SURVIVAL,EXPERIMENTAL})
+    public static boolean nerfedNotchApple = false;
+
+    @Rule(desc = "Additional Villager Trades for Armor and Shovel", category = {SURVIVAL,EXPERIMENTAL})
+    public static boolean additionalTrades = false;
+    @Rule(desc = "Enchantable Hoes from the Future", category = {SURVIVAL,EXPERIMENTAL})
+    public static boolean enchantableHoes = false;
+    @Rule(desc = "Disable Enderman Griefing, Please note that Enderman are part of the game and stop hacks.", category = {SURVIVAL,EXPERIMENTAL})
+    public static boolean disableEndermanGriefing = false;
+
     private static boolean validateWirelessRedstone(boolean value) {
         if (!value)
             ((BlockWool) Blocks.WOOL).clearWirelessLocations();

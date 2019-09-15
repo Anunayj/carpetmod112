@@ -1,0 +1,43 @@
+--- ../src-base/minecraft/net/minecraft/block/material/Material.java
++++ ../src-work/minecraft/net/minecraft/block/material/Material.java
+@@ -1,5 +1,7 @@
+ package net.minecraft.block.material;
+ 
++import carpet.CarpetSettings;
++
+ public class Material
+ {
+     public static final Material field_151579_a = new MaterialTransparent(MapColor.field_151660_b);
+@@ -41,7 +43,7 @@
+             return false;
+         }
+     }).func_76221_f().func_76219_n();
+-    public static final Material field_76233_E = (new Material(MapColor.field_151665_m)).func_76225_o();
++    public static final Material field_76233_E = (new Material(MapColor.field_151665_m)).func_76225_o().setSolid(false);
+     public static final Material field_175972_I = (new Material(MapColor.field_151660_b)).func_76221_f().func_76225_o();
+     public static final Material field_189963_J = new MaterialTransparent(MapColor.field_151660_b);
+     private boolean field_76235_G;
+@@ -51,6 +53,7 @@
+     private boolean field_76241_J = true;
+     private EnumPushReaction field_76242_K = EnumPushReaction.NORMAL;
+     private boolean field_85159_M;
++    private boolean solid = true;
+ 
+     public Material(MapColor p_i2116_1_)
+     {
+@@ -64,8 +67,15 @@
+ 
+     public boolean func_76220_a()
+     {
++        if (CarpetSettings.nonsolidBlock36)
++            return this.solid;
+         return true;
+     }
++    public Material setSolid(boolean x)
++    {
++        this.solid = x;
++        return this;
++    }
+ 
+     public boolean func_76228_b()
+     {
